@@ -1,5 +1,6 @@
 import flet as ft
 from pathlib import Path
+from dotenv import load_dotenv
 from functools import cache
 import json
 import os
@@ -17,6 +18,7 @@ def load_locale(lang: str) -> dict[str, str]:
         return {}
 
 async def main(page: ft.Page):
+    load_dotenv(dotenv_path=get_assets_dir() / ".env")
     device_info = await page.get_device_info()
     locales = device_info.locales if device_info else []
     lang = locales[0].language_code if locales else "en"

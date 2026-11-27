@@ -8,7 +8,8 @@ authors = [
     { name = "Sergio Galarza", email = "xderrisk@gmail.com" }
 ]
 dependencies = [
-    "flet>=1.1.4"
+    "flet>=1.1.4",
+    "python-dotenv>=1.2.4",
 ]
 
 [dependency-groups]
