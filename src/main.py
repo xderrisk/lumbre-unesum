@@ -32,13 +32,39 @@ async def main(page: ft.Page):
         ],
     )
 
-    classrooms = ft.Text(lang)
+    n = 6
+    def grid_extent(width: float | None) -> int:
+        w = width or 0
+        if w >= 1200:
+            return 400
+        if w >= 1000:
+            return 240
+        return 170
+
+    classrooms_gridview = ft.GridView(
+        max_extent=grid_extent(page.width),
+        child_aspect_ratio=1.2,
+        controls=[
+            ft.Container(
+                bgcolor=ft.Colors.PRIMARY_CONTAINER,
+                border_radius=8,
+            )
+            for i in range(n)
+        ],
+    )
+
+    def on_resize(_):
+        classrooms_gridview.max_extent = grid_extent(page.width)
+        page.update()
+
+    page.on_resize = on_resize
 
     page.add(
         ft.SafeArea(
             expand=True,
             content=ft.Container(
-                content=classrooms,
+                padding=10,
+                content=classrooms_gridview,
                 alignment=ft.Alignment.CENTER,
             ),
         )
