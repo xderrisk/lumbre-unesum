@@ -2,20 +2,21 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    counter = ft.Text("0", size=50, data=0)
-
-    def increment_click(e: ft.Event[ft.FloatingActionButton]):
-        counter.data += 1
-        counter.value = str(counter.data)
-
-    page.floating_action_button = ft.FloatingActionButton(
-        icon=ft.Icons.ADD, key="increment", on_click=increment_click
+    page.adaptive = True
+    page.appbar = ft.AppBar(
+        title=ft.Text("Classroom Status"),
+        actions=[
+            ft.IconButton(ft.Icons.INFO)
+        ],
     )
+
+    classrooms = ft.Text("0", size=50, data=0)
+
     page.add(
         ft.SafeArea(
             expand=True,
             content=ft.Container(
-                content=counter,
+                content=classrooms,
                 alignment=ft.Alignment.CENTER,
             ),
         )
