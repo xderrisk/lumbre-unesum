@@ -9,6 +9,7 @@ authors = [
 ]
 dependencies = [
     "flet>=1.1.4",
+    "pyrebase4>=4.9.0",
     "python-dotenv>=1.2.4",
 ]
 
