@@ -1,5 +1,5 @@
 [project]
-name = "lumbre-unesum"
+name = "lumbre"
 version = "0.1.0"
 description = ""
 readme = "README.md"
@@ -29,7 +29,7 @@ pythonpath = ["src"]
 [tool.flet]
 desktop_flavor = "light"    # Change to "full" to use flet-audio and flet-video
 org = "ec.edu.unesum"
-product = "lumbre"
+product = "Lumbre"
 company = "UNESUM"
 copyright = "Copyright (C) 2026 by UNESUM"
 
@@ -42,3 +42,7 @@ copyright = "Copyright (C) 2026 by UNESUM"
 
 [tool.flet.app]
 path = "src"
+
+[tool.flet.android]
+legacy_packaging = true
+split_per_abi = true
